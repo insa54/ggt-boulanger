@@ -1,0 +1,45 @@
+# ## Default .htaccess file
+# <IfModule mod_rewrite.c>
+
+# 	RewriteEngine On
+# 	RewriteRule ^([^\.]+).html$ $1.php [NC,l]
+# 	RewriteRule ^([^\.]+)$ $1.php [NC,l]
+
+# 	ErrorDocument 404 /mavoitur/error/404.php
+# 	##ErrorDocument 500 /newBB2/AdminBank/error/404.php
+
+#     RewriteRule Login Controller/controllerGeneral.php?action=$0
+#     RewriteRule ajax-([a-zA-Z_\-0-9]+)-([a-zA-Z_\-0-9]+) base/controller/ajax.php?action=ajax&todo=$1&id=$2
+#     RewriteRule accueil base/controller/accueil.php?action=$0
+#     RewriteRule bilan index.php?controller=bilan&action=bilan
+#     RewriteRule bilan/detail index.php?controller=bilan&action=detail
+#     RewriteRule produit/ajout base/controller/formController.php?action=ajoutProduit
+#     RewriteRule produit/vendu base/controller/formController.php?action=venteProduit
+#     RewriteRule Log-Logout Controller/controllerGeneral.php?action=$1
+
+    
+# </IfModule>
+
+#AddType text/cache-manifest manifest
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^$ index.php?controller=accueil&action=accueil [QSA,L]
+RewriteRule ^ajax/addVente/(.*)$ index.php?controller=ajax&action=ajax&todo=addVente&id=$1 [QSA,L]
+RewriteRule ^ajax/exportdate/(.*)$ index.php?controller=ajax&action=ajax&todo=exportdate&date=$1 [QSA,L]
+RewriteRule ^bilan$ index.php?controller=bilan&action=bilan [QSA,L]
+RewriteRule ^export$ index.php?controller=bilan&action=export [QSA,L]
+RewriteRule ^user$ index.php?controller=users&action=index [QSA,L]
+RewriteRule ^user/ajout$ index.php?controller=users&action=ajout [QSA,L]
+RewriteRule ^user/archiver/(.*)$ index.php?controller=users&action=archiver&id=$1 [QSA,L]
+RewriteRule ^user/activer/(.*)$ index.php?controller=users&action=activer&id=$1 [QSA,L]
+RewriteRule ^user/delate/(.*)$ index.php?controller=users&action=delate&id=$1 [QSA,L]
+RewriteRule ^login$ index.php?controller=users&action=login [QSA,L]
+RewriteRule ^logout$ index.php?controller=users&action=logout [QSA,L]
+RewriteRule ^bilan/detail/(.*)$ index.php?controller=bilan&action=detail&dates=$1 [QSA,L]
+RewriteRule ^produit/ajout$ index.php?controller=formController&action=ajoutProduit [QSA,L]
+RewriteRule ^produit/vendu$ index.php?controller=formController&action=venteProduit [QSA,L]
+RewriteRule ^vente/finaliser$ index.php?controller=formController&action=finaliser [QSA,L]
+RewriteRule ^vente/delFromPagnet$ index.php?controller=formController&action=delFromPagnet [QSA,L]
+RewriteRule ^vente/valider$ index.php?controller=formController&action=valider [QSA,L]
