@@ -57,7 +57,7 @@
                     // unset($donnees['prix']);
                     // $model->setTable("vente");
                     // $id_vente = $model->record($donnees,[],true);
-                    $_SESSION['notification']['success'] = "Vente ajoutée";
+                    $_SESSION['notification']['success'] = "Produit ajouté dans le panier";
                     header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
             }else{
@@ -73,8 +73,9 @@
                     $model->setTable("vente");
                     $id_vente = $model->record($donnees,[],true);
                     $_SESSION['notification']['success'] = "Vente ajoutée";
-                    header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
+                unset($_SESSION["pagnet"]);
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
             }else{
 
             }
@@ -82,8 +83,10 @@
         
         case "finaliser":
             $allprod = 0;
-            foreach($_SESSION["pagnet"] as $pagnet){
-                $allprod += $pagnet['total'];
+            if(isset($_SESSION["pagnet"])){
+                foreach($_SESSION["pagnet"] as $pagnet){
+                    $allprod += $pagnet['total'];
+                }
             }
             include_once("./base/views/_inc_vente_final.php");
             break;

@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="mdp" class="text-info">Mot de passe:</label><br>
-                                <input type="text" name="mdp" id="mdp" class="form-control">
+                                <input type="password" name="mdp" id="mdp" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Se souvenir de moi</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>

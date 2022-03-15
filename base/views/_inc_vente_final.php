@@ -1,3 +1,4 @@
+<?php if ((isset($_SESSION["pagnet"])) && (count($_SESSION["pagnet"]) > 0)){ ?>
 <div class="m-5">
     <table class="table" id="exportT">
         <thead>
@@ -35,3 +36,8 @@
         </div>
     </form>
 </div>
+<?php }else { ?>
+    <div class="m-5">
+        <h3>Aucun produit dans votre pagnet</h3>
+    </div>
+<?php } ?>
