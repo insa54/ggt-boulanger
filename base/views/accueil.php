@@ -14,6 +14,7 @@
 						<div class="row d-flex">
 							<div class="col-md-12 col-lg-4">
 								<img src="../base/assets/images/<?php echo $produit->image; ?>" class="img-fluid card__produit-image">
+                                <!-- <div style="background-image: url('../base/assets/images/<?php echo $produit->image; ?>');background-repeat: no-repeat;background-position: center; background-size: cover;"></div> -->
 							</div>
 							<div class="col-md-12 col-lg-8">
 								<div class="p-3">
