@@ -31,6 +31,7 @@
                             }
 
                             $donnees['id'] = $id_produit;
+                            $model->setClause("id=".$donnees["id"]);
                             $model->updateOne($donnees);
                         }
                         $_SESSION['notification']['success'] = "Produit ajoutée!!";

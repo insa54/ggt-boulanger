@@ -15,7 +15,7 @@
 					<h5 class="modal-title" id="exampleModalLabel">Ajouter un produit</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<form action="produit/ajout" method="post">
+				<form action="produit/ajout" method="post" enctype="multipart/form-data">
 					<div class="modal-body">
 						<div class="mb-3">
 							<label for="libelle" class="form-label">Libelle produit</label>
@@ -32,6 +32,9 @@
 						<div class="mb-3">
 							<label for="image" class="form-label">Image du produit</label>
 							<input type="file" name="image" class="form-control" id="image">
+						</div>
+                        <div class="mb-3">
+							<input type="submit" class="btn btn-success" value="Ajouter">
 						</div>
 					</div>
 				</form>
