@@ -1,36 +1,32 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<?php include "_header.php"; ?>
 
-<body>
-    <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
-                            <div class="form-group">
-                                <label for="email" class="text-info">Votre email:</label><br>
-                                <input type="text" name="email" id="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="mdp" class="text-info">Mot de passe:</label><br>
-                                <input type="password" name="mdp" id="mdp" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Se souvenir de moi</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div>
-                        </form>
+<section id="login" class="page__login">
+    <div class="container __login_box bg-light py-5 text-center">
+        <div id="login-row" class="justify-content-center align-items-center">
+            <div id="login-box">
+                <form id="login-form" class="form" action="" method="post">
+                    <h1 class="fs-4 text-center">Se connecter</h1>
+                    <div class="form-group mb-2">
+                        <input type="text" name="email" id="email" class="form-control">
                     </div>
-                </div>
+                    <div class="form-group mb-2">
+                        <input type="password" name="mdp" id="mdp" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="remember-me">
+                            <input id="remember-me" name="remember-me" type="checkbox"></span>
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <input type="submit" name="submit" class="btn btn-warning btn-md mt-2" value="Connexion">
+                    </div>
+                    <div id="register-link" class="text-right mt-4">
+                        <a href="#" class="text-warning">Inscrivez-vous ici</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</body>
+</section>
+
+<?php include "_footer.php"; ?>
+    

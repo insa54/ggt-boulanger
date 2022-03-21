@@ -1,9 +1,11 @@
     <?php include "_header.php"; ?>
-    <div class="container mt-10">
-        <input type="date" name="date_to_export" class="form-control" onchange="loadDocument('<?php echo HTTP_PATH; ?>/ajax/exportdate/'+this.value, 'table_exp', '','')">
+    <?php include '_inc_navbar.php'; ?>
+
+    <div class="container my-5">
+        <input type="date" name="date_to_export" class="form-control mb-4" onchange="loadDocument('<?php echo HTTP_PATH; ?>/ajax/exportdate/'+this.value, 'table_exp', '','')">
         <button onclick="export2csv('exportT')" class="btn btn-primary">Exporter</button>
-        <div id="table_exp">
-            <table class="table" id="exportT">
+        <div id="table_exp" class="mt-5">
+            <table class="table table-bordered" id="exportT">
                 <thead>
                     <tr>
                         <th scope="col">Date</th>

@@ -1,6 +1,6 @@
 <?php if ((isset($_SESSION["pagnet"])) && (count($_SESSION["pagnet"]) > 0)){ ?>
 <div class="m-5">
-    <table class="table" id="exportT">
+    <table class="table table-bordered" id="exportT">
         <thead>
             <tr>
                 <th scope="col"></th>

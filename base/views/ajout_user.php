@@ -1,4 +1,6 @@
     <?php include "_header.php"; ?>
+    <?php include '_inc_navbar.php'; ?>
+
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
@@ -36,6 +38,7 @@
             </div>
         </div>
     </div>
+    
     <?php include "_footer.php"; ?>
 
     

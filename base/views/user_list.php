@@ -1,7 +1,9 @@
     <?php include "_header.php"; ?>
-    <div class="container mt-10">
-        <a href="/user/ajout" class="btn btn-primary">Nouvel utilisateur</a>
-        <table class="table" id="exportT">
+    <?php include '_inc_navbar.php'; ?>
+
+    <div class="container my-5">
+        <a href="/user/ajout" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="las la-user-plus"></i> Nouvel utilisateur</a>
+        <table class="table table-bordered mt-5" id="exportT">
             <thead>
                 <tr>
                     <th scope="col">Nom</th>
@@ -42,8 +44,8 @@
                 <?php } ?>
             </tbody>
         </table>
-    
     </div>
+
     <?php include "_footer.php"; ?>
 
     

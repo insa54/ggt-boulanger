@@ -22,14 +22,13 @@
                     if ($id_produit > 0) {
                         if (!empty($_FILES['image']['name'])) {
                             $upload = uploadPicture($_FILES['image'], 'produit_' . $id_produit, $route.'/base/assets/images/', 256, 'oui');
-                            move_uploaded_file($_FILES["image"]["tmp_name"], $route.'/base/assets/images/');
-                            $donnees['image'] = $_FILES["image"]["tmp_name"];
-                            // if ($upload[0] !== false) {
-                            //     $donnees['image'] = $_FILES["pictures"]["tmp_name"]
-                            // } else {
-                            //     $donnees['image'] = "";
-                            //     $_SESSION['notification']['erreur'] = $upload[1];
-                            // }
+
+                            if ($upload[0] !== false) {
+                                $donnees['image'] = $upload[1];
+                            } else {
+                                $donnees['image'] = "";
+                                $_SESSION['notification']['erreur'] = $upload[1];
+                            }
 
                             $donnees['id'] = $id_produit;
                             $model->updateOne($donnees);

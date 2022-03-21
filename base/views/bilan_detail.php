@@ -1,7 +1,9 @@
     <?php include "_header.php"; ?>
-    <div class="container mt-10">
-        <button onclick="export2csv('exportT')" class="btn btn-primary">Exporter</button>
-        <table class="table" id="exportT">
+    <?php include '_inc_navbar.php'; ?>
+
+    <div class="container my-5">
+        <button onclick="export2csv('exportT')" class="btn btn-outline-primary"><i class="las la-file-download"></i> Exporter</button>
+        <table class="table table-bordered mt-5" id="exportT">
             <thead>
                 <tr>
                     <th scope="col">Date</th>
