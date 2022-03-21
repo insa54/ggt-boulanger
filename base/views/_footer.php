@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<div class="modal fade" id="model_add_vente" tabindex="-1" aria-labelledby="Modal vente" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog">
 			<div class="modal-content" id="modal_vente">
 
 			</div>
