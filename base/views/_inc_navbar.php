@@ -24,7 +24,7 @@
                             <a class="nav-link" href="/user"><i class="las la-user-tag text-warning fs-4"></i> Utilisateur</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="las la-folder-plus text-warning fs-4"></i> Ajouter Produit</a>
+                            <a class="nav-link" href="/produit"><i class="las la-folder-plus text-warning fs-4"></i> Ajouter Produit</a>
                         </li>
                         <?php } ?>
                     </ul>

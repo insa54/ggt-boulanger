@@ -100,5 +100,29 @@
             }
             include_once("./base/views/_inc_vente_final.php");
             break;
+        case "listprod":
+            $model->setTable("produit");
+            $model->setChamp("*");
+            $model->setClause("");
+            $produits = $model->getData();
+            include_once("./base/views/prod_list.php");
+
+            break;
+
+        case "archiver":
+        case "activer":
+            $donnees['id'] = $id;
+            $donnees['actif'] = ($action == "activer") ? 0 : 1;
+            $model->setTable("produit");
+            $model->setClause("id=".$id);
+            $model->updateOne($donnees);
+            header('location:/produit');
+            break;
         
+        case "delete":
+            $model->setTable("produit");
+            $model->setClause("id=".$id);
+            $model->remove();
+            header('location:/produit');
+            break;
     }
