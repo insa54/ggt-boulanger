@@ -32,14 +32,14 @@
 
         case "export":
             $clause = "";
-            if(isset($_GET['date_to_export'])){
+            if((isset($_GET['date_to_export'])) && ($_GET["date_to_export"] != "")){
                 $date = $_GET['date_to_export'];
                 $clause .=  "MONTH(v.date_vente) = ".date("m", strtotime($date))." AND DAY(v.date_vente) = ".date("d", strtotime($date))." AND YEAR(v.date_vente) = ".date("Y", strtotime($date))." AND v.id_produit=p.id AND v.id_user=u.id";
             }else{
                 $clause .= "DAY(v.date_vente) = ".date("d")." AND MONTH(v.date_vente) = ".date('m')." AND YEAR(v.date_vente) = ".date('Y')." AND v.id_produit=p.id AND v.id_user=u.id";
             }
 
-            if(isset($_GET["nom"])){
+            if((isset($_GET["nom"])) && ($_GET["nom"] != "")){
                 $nom = $_GET["nom"];
                 $clause .= " AND u.nom = '".$nom."' OR u.prenom = '".$nom."' OR p.libelle = '".$nom."'";
             }
