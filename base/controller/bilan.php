@@ -31,12 +31,12 @@
             break;
 
         case "export":
-            $clause = "";
+            $clause = "1=1";
             if((isset($_GET['date_to_export'])) && ($_GET["date_to_export"] != "")){
                 $date = $_GET['date_to_export'];
-                $clause .=  "MONTH(v.date_vente) = ".date("m", strtotime($date))." AND DAY(v.date_vente) = ".date("d", strtotime($date))." AND YEAR(v.date_vente) = ".date("Y", strtotime($date))." AND v.id_produit=p.id AND v.id_user=u.id";
+                $clause .=  " AND MONTH(v.date_vente) = ".date("m", strtotime($date))." AND DAY(v.date_vente) = ".date("d", strtotime($date))." AND YEAR(v.date_vente) = ".date("Y", strtotime($date))." AND v.id_produit=p.id AND v.id_user=u.id";
             }else{
-                $clause .= "DAY(v.date_vente) = ".date("d")." AND MONTH(v.date_vente) = ".date('m')." AND YEAR(v.date_vente) = ".date('Y')." AND v.id_produit=p.id AND v.id_user=u.id";
+                // $clause .= " AND DAY(v.date_vente) = ".date("d")." AND MONTH(v.date_vente) = ".date('m')." AND YEAR(v.date_vente) = ".date('Y')." AND v.id_produit=p.id AND v.id_user=u.id";
             }
 
             if((isset($_GET["nom"])) && ($_GET["nom"] != "")){
