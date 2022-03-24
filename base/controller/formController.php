@@ -17,6 +17,9 @@
                 if ($erreur[0] === false) {
 
                     $model->setTable("produit");
+                    if(isset($donnees["id"])){
+                        $model->setClause("id=".$donnees["id"]);
+                    }
                     $id_produit = $model->record($donnees,[],true);
 
                     if ($id_produit > 0) {
@@ -69,6 +72,7 @@
         case "valider":
             if (isset($_SESSION["pagnet"]) && count($_SESSION["pagnet"] > 0)) {
                 foreach($_SESSION["pagnet"] as $donnees){
+                    $donnees["id_user"] = $_SESSION[_USER_]->id;
                     unset($donnees['prix']);
                     unset($donnees['libelle']);
                     $model->setTable("vente");
@@ -106,6 +110,16 @@
             $model->setClause("");
             $produits = $model->getData();
             include_once("./base/views/prod_list.php");
+
+            break;
+
+        case "modif":
+            $model->setTable("produit");
+            $model->setChamp("*");
+            $model->setClause("id=".$id);
+            $produits = $model->getData();
+            $prod = $produits[0];
+            include_once("./base/views/produit_update.php");
 
             break;
 

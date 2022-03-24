@@ -2,6 +2,7 @@
             <thead>
                 <tr>
                     <th scope="col">Date</th>
+                    <th scope="col">Vendeur</th>
                     <th scope="col">Libelle Produit</th>
                     <th scope="col">Prix</th>
                     <th scope="col">Quantité</th>
@@ -12,6 +13,7 @@
                 <?php foreach($ventes_d as $vente){ ?>
                 <tr>
                     <td><?php echo $vente->date_vente; ?></td>
+                    <td><?php echo $vente->prenom ." ".$vente->nom; ?></td>
                     <td><?php echo $vente->libelle; ?></td>
                     <td><?php echo $vente->prix; ?> XOF</td>
                     <td><?php echo $vente->qte; ?></td>
@@ -19,7 +21,7 @@
                 </tr>
                 <?php } ?>
                 <tr>
-                    <th colspan="4">Total</th>
+                    <th colspan="5">Total</th>
                     <td><?php echo $total; ?> XOF</td>
                 </tr>
             </tbody>

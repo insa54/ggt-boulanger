@@ -1,0 +1,1 @@
+ALTER TABLE `vente`  ADD `id_user` INT NOT NULL  AFTER `total`;

@@ -28,6 +28,7 @@
                                 Action
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loadDocument('<?php echo HTTP_PATH; ?>/produit/modif/<?php echo $produit->id; ?>', 'produitModal', '','')">Modifier</a></li>
                                 <?php if($produit->actif != 0){ ?>
                                 <li><a class="dropdown-item" href="/produit/activer/<?php echo $produit->id; ?>">Activer</a></li>
                                 <?php } ?>
