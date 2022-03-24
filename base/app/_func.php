@@ -1289,61 +1289,67 @@ function pagination($num, $per_page = 10, $page = 1, $url = '?')
     $pagination = "";
     if ($lastpage > 1) {
         $pagination .= "<ul class='pagination'>";
-        $pagination .= "<li class='details' style='margin-top:2px'>Page $page à $lastpage</li>";
+        if ($page > 1) {
+            $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=1'>Premier</a></li>";
+            $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$prev'>Precedent</a></li>";
+        } else {
+            $pagination .= "<li class='page-item disabled'><a class='page-link'>Premier</a></li>";
+            $pagination .= "<li class='page-item disabled'><a class='page-link'>Precedent</a></li>";
+        }
         if ($lastpage < 7 + ($adjacents * 2)) {
             for ($counter = 1; $counter <= $lastpage; $counter++) {
                 if ($counter == $page) {
-                    $pagination .= "<li><a class='current'>$counter</a></li>";
+                    $pagination .= "<li class='page-item'><a class='page-link'>$counter</a></li>";
                 } else {
-                    $pagination .= "<li><a href='{$url}page=$counter'>$counter</a></li>";
+                    $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$counter'>$counter</a></li>";
                 }
             }
         } elseif ($lastpage > 5 + ($adjacents * 2)) {
             if ($page < 1 + ($adjacents * 2)) {
                 for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++) {
                     if ($counter == $page) {
-                        $pagination .= "<li><a class='current'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link'>$counter</a></li>";
                     } else {
-                        $pagination .= "<li><a href='{$url}page=$counter'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$counter'>$counter</a></li>";
                     }
                 }
                 $pagination .= "<li class='dot'>...</li>";
-                $pagination .= "<li><a href='{$url}page=$lpm1'>$lpm1</a></li>";
-                $pagination .= "<li><a href='{$url}page=$lastpage'>$lastpage</a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$lpm1'>$lpm1</a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$lastpage'>$lastpage</a></li>";
             } elseif ($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
-                $pagination .= "<li><a href='{$url}page=1'>1</a></li>";
-                $pagination .= "<li><a href='{$url}page=2'>2</a></li>";
-                $pagination .= "<li class='dot'>...</li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=1'>1</a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=2'>2</a></li>";
+                $pagination .= "<li class='dot'><a class='page-link'>...</a></li>";
                 for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
                     if ($counter == $page) {
-                        $pagination .= "<li><a class='current'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link'>$counter</a></li>";
                     } else {
-                        $pagination .= "<li><a href='{$url}page=$counter'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$counter'>$counter</a></li>";
                     }
                 }
-                $pagination .= "<li class='dot'>..</li>";
-                $pagination .= "<li><a href='{$url}page=$lpm1'>$lpm1</a></li>";
-                $pagination .= "<li><a href='{$url}page=$lastpage'>$lastpage</a></li>";
+                $pagination .= "<li class='page-item'>..</li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$lpm1'>$lpm1</a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$lastpage'>$lastpage</a></li>";
             } else {
-                $pagination .= "<li><a href='{$url}page=1'>1</a></li>";
-                $pagination .= "<li><a href='{$url}page=2'>2</a></li>";
-                $pagination .= "<li class='dot'>..</li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=1'>1</a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=2'>2</a></li>";
+                $pagination .= "<li class='page-item'>..</li>";
                 for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
                     if ($counter == $page) {
-                        $pagination .= "<li><a class='current'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link'>$counter</a></li>";
                     } else {
-                        $pagination .= "<li><a href='{$url}page=$counter'>$counter</a></li>";
+                        $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$counter'>$counter</a></li>";
                     }
                 }
             }
         }
 
         if ($page < $counter - 1) {
-            $pagination .= "<li><a href='{$url}page=$next'>Suivant</a></li>";
-            $pagination .= "<li><a href='{$url}page=$lastpage'>Dernier</a></li>";
+            $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$next'>Suivant</a></li>";
+            $pagination .= "<li class='page-item'><a class='page-link' href='{$url}page=$lastpage'>Dernier</a></li>";
         } else {
-            $pagination .= "<li><a class='current'>Suivant</a></li>";
-            $pagination .= "<li><a class='current'>Dernier</a></li>";
+            $pagination .= "<li class='page-item disabled'><a class='page-link'>Suivant</a></li>";
+            $pagination .= "<li class='page-item disabled'><a class='page-link'>Dernier</a></li>";
         }
         $pagination .= "</ul>\n";
     }

@@ -47,6 +47,9 @@
                 </tbody>
             </table>
         </div>
+        <div>
+            <?php if(isset($pagination)) echo $pagination; ?>
+        </div>
     </div>
     <?php include "_footer.php"; ?>
 

@@ -43,9 +43,21 @@
                 $nom = $_GET["nom"];
                 $clause .= " AND (u.nom like '%".$nom."%' OR u.prenom like '%".$nom."%' OR p.libelle like '%".$nom."%')";
             }
+            // $model->setTable("vente");
+            // $num = $model->getCount("id", true);
+            // $page=1;
+            // if(isset($_GET["page"])){
+            //     $page = $_GET["page"];
+            // }
+            // $limit = 1;
+            // $pagination = pagination($num, $limit, $page);
+            // $startpoint = ($page * $limit) - $limit;
+
+            $model->release();
             $model->setTable("vente v, produit p, users u");
             $model->setChamp("*");
             $model->setClause($clause);
+            // $model->setLimit($startpoint . ',' . $limit);
             $ventes = $model->getData(true);
             $total = 0;
             for($i=0;$i<count($ventes);$i++){
