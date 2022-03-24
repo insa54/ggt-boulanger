@@ -41,7 +41,7 @@
 
             if((isset($_GET["nom"])) && ($_GET["nom"] != "")){
                 $nom = $_GET["nom"];
-                $clause .= " AND u.nom = '".$nom."' OR u.prenom = '".$nom."' OR p.libelle = '".$nom."'";
+                $clause .= " AND u.nom like '%".$nom."%' OR u.prenom like '%".$nom."%' OR p.libelle like '%".$nom."%'";
             }
             $model->setTable("vente v, produit p, users u");
             $model->setChamp("*");

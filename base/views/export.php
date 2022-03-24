@@ -6,10 +6,10 @@
             <div class="row mb-4">
                 <div class="form-group col-md-5">
                     <!-- <input type="date" name="date_to_export" class="form-control" onchange="loadDocument('<?php echo HTTP_PATH; ?>/ajax/exportdate/'+this.value, 'table_exp', '','')"> -->
-                    <input style="height: 45px;" type="date" name="date_to_export" class="form-control"/>
+                    <input style="height: 45px;" type="date" name="date_to_export" class="form-control" value="<?php if(isset($date)){ echo $date; } ?>"/>
                 </div>
                 <div class="form-group col-md-5">
-                    <input style="height: 45px;" type="text" placeholder="Nom du vendeur" name="nom" class="form-control"/>
+                    <input style="height: 45px;" type="text" placeholder="Nom du vendeur" name="nom" value="<?php if(isset($nom)){ echo $nom; } ?>" class="form-control"/>
                 </div>
                 <div class="col-md-2">
                     <button style="height: 45px;" class="btn btn-primary">Rechercher</button>
