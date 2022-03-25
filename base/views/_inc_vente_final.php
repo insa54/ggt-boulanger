@@ -13,7 +13,8 @@
         <tbody>
             <?php foreach($_SESSION["pagnet"] as $k => $vente){ ?>
             <tr>
-                <td><i class="fa-solid fa-circle-minus" onclick="delFormPagnet(<?php echo $k; ?>)"></i></td>
+                <td><i class="las la-trash text-warning fs-4" onclick="delFormPagnet(<?php echo $k; ?>)"></i></td>
+                <!-- <td><i class="fa-solid fa-circle-trash" onclick="delFormPagnet(<?php echo $k; ?>)">Supprimer</i></td>las la-user-tag text-warning fs-4 -->
                 <td><?php echo $vente["libelle"]; ?></td>
                 <td><?php echo $vente["prix"]; ?> XOF</td>
                 <td><?php echo $vente["qte"]; ?></td>
