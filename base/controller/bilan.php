@@ -20,12 +20,20 @@
             $dateTable = explode('-', $dates);
             $m = array_search($dateTable[0], $mois) + 1;
             $model->setTable("vente v, produit p");
-            $model->setChamp("*");
-            $model->setClause("MONTH(v.date_vente) = ".$m." AND YEAR(v.date_vente) = ".$dateTable[1]." AND v.id_produit=p.id");
-            $ventes = $model->getData();
+            $model->setChamp("p.*, SUM(v.total) as totalsum, SUM(v.qte) as totalqte, v.*");
+            $model->setClause("MONTH(v.date_vente) = ".$m." AND YEAR(v.date_vente) = ".$dateTable[1]." AND v.id_produit=p.id GROUP BY CAST(v.date_vente AS DATE), v.id_produit");
+            $ventes = $model->getData(true);
+            //SELECT p.*, SUM(v.total) as total, SUM(v.qte) as totalqte, v.*, u.* FROM vente v, produit p WHERE v.id_produit=p.id AND MONTH(v.date_vente) = 3 AND YEAR(v.date_vente) = 2022 GROUP BY CAST(v.date_vente AS DATE), v.id_produit;
+            //SELECT p.*, SUM(v.total) as total, SUM(v.qte) as totalqte, v.*, u.* FROM vente v, produit p, users u WHERE v.id_produit=p.id AND u.id=v.id_user GROUP BY CAST(v.date_vente AS DATE), v.id_produit;
+            $allday = [];
+            foreach($ventes as $data){
+                $txt = date("d",strtotime($data->date_vente)) .'-'. $mois[date("n",strtotime($data->date_vente))-1].'-'.date("Y",strtotime($data->date_vente));
+                $allday[$txt][] = $data;
+            }
+
             $total = 0;
             for($i=0;$i<count($ventes);$i++){
-                $total += intval($ventes[$i]->total);
+                $total += intval($ventes[$i]->totalsum);
             }
             include_once("./base/views/bilan_detail.php");
             break;

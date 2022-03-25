@@ -8,20 +8,22 @@
                 <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Libelle Produit</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">Prix Unitaire</th>
+                    <th scope="col">Quantité/jour</th>
+                    <th scope="col">Total/jour</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($ventes as $vente){ ?>
-                <tr>
-                    <td><?php echo $vente->date_vente; ?></td>
-                    <td><?php echo $vente->libelle; ?></td>
-                    <td><?php echo $vente->prix; ?> XOF</td>
-                    <td><?php echo $vente->qte; ?></td>
-                    <td><?php echo $vente->total; ?> XOF</td>
-                </tr>
+                <?php foreach($allday as $k => $vente){ ?>
+                    <?php for($i = 0; $i < count($vente); $i++){ ?>
+                        <tr>
+                            <?php if($i == 0){ ?><td rowspan="<?php echo count($vente); ?>"><?php echo $k; ?></td> <?php } ?>
+                            <td><?php echo $vente[$i]->libelle; ?></td>
+                            <td><?php echo $vente[$i]->prix; ?> XOF</td>
+                            <td><?php echo $vente[$i]->totalqte; ?></td>
+                            <td><?php echo $vente[$i]->totalsum; ?> XOF</td>
+                        </tr>
+                    <?php } ?>
                 <?php } ?>
                 <tr>
                     <th colspan="4">Total</th>
