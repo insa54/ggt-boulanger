@@ -6,7 +6,9 @@
 		    <div class="row text-center">
 		        <h1 class="">Bienvenue</h1>
 		    </div>
+			<?php if((isset($_SESSION[_USER_])) && ($_SESSION[_USER_]->profil == "ADMIN")){ ?>
 			<a class="btn btn-danger" href="/vente/liste_daly"><i class="las la-sign-out-alt fs-3"></i>Ventes du jour</a>
+			<?php } ?>
 		</div>
 
 		<div class="container my-5 row mx-auto">
