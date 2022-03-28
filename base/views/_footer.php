@@ -96,7 +96,8 @@
 			<div class="toast align-items-center text-white bg-danger border-0" role="alert" <?php if(isset($erreur)){ echo "id='errorMsg'"; } ?>>
 				<div class="d-flex">
 					<div class="toast-body">
-						<?php echo $erreur; ?>
+						<!-- <?php echo $erreur; ?> -->
+						<?php if (!is_array($erreur)) echo $erreur; else echo "Erreur veuillez reesayer"; ?>
 					</div>
 					<button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="closeToast('errorMsg')" aria-label="Close"></button>
 				</div>
