@@ -59,7 +59,7 @@
 				</div>
 				<div class="modal-body">
 					<div id="login-box" class="col-md-12">
-					    <form id="login-form" class="form" action="" method="post">
+					    <form id="login-form" class="form" action="/user/ajout" method="post">
 					        <div class="row">
 					        	<div class="col-lg-6 form-group mb-3">
 					        	    <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom">
