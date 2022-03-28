@@ -139,4 +139,41 @@
             $model->remove();
             header('location:/produit');
             break;
+        
+        case "deleteVente":
+            $model->setTable("vente");
+            $model->setClause("id=".$id);
+            $model->remove(true);
+            header('location:/vente/liste_daly');
+            break;
+        case "liste_daly":
+            
+            $clause = " DAY(v.date_vente) = ".date("d")." AND MONTH(v.date_vente) = ".date('m')." AND YEAR(v.date_vente) = ".date('Y')." AND v.id_produit=p.id AND v.id_user=u.id";
+
+            // if((isset($_GET["nom"])) && ($_GET["nom"] != "")){
+            //     $nom = $_GET["nom"];
+            //     $clause .= " AND (u.nom like '%".$nom."%' OR u.prenom like '%".$nom."%' OR p.libelle like '%".$nom."%')";
+            // }
+            // $model->setTable("vente");
+            // $num = $model->getCount("id", true);
+            // $page=1;
+            // if(isset($_GET["page"])){
+            //     $page = $_GET["page"];
+            // }
+            // $limit = 1;
+            // $pagination = pagination($num, $limit, $page);
+            // $startpoint = ($page * $limit) - $limit;
+
+            $model->release();
+            $model->setTable("vente v, produit p, users u");
+            $model->setChamp("v.*, p.libelle, p.prix, u.nom, u.prenom");
+            $model->setClause($clause);
+            // $model->setLimit($startpoint . ',' . $limit);
+            $ventes = $model->getData(true);
+            $total = 0;
+            for($i=0;$i<count($ventes);$i++){
+                $total += intval($ventes[$i]->total);
+            }
+            include_once("./base/views/listes_ventes.php");
+            break;
     }

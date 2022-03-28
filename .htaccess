@@ -45,6 +45,8 @@ RewriteRule ^produit/archiver/(.*)$ index.php?controller=formController&action=a
 RewriteRule ^produit/activer/(.*)$ index.php?controller=formController&action=activer&id=$1 [QSA,L]
 RewriteRule ^produit/delete/(.*)$ index.php?controller=formController&action=delete&id=$1 [QSA,L]
 RewriteRule ^produit/modif/(.*)$ index.php?controller=formController&action=modif&id=$1 [QSA,L]
+RewriteRule ^vente/delete/(.*)$ index.php?controller=formController&action=deleteVente&id=$1 [QSA,L]
+RewriteRule ^vente/liste_daly$ index.php?controller=formController&action=liste_daly [QSA,L]
 RewriteRule ^vente/finaliser$ index.php?controller=formController&action=finaliser [QSA,L]
 RewriteRule ^vente/delFromPagnet$ index.php?controller=formController&action=delFromPagnet [QSA,L]
 RewriteRule ^vente/valider$ index.php?controller=formController&action=valider [QSA,L]
