@@ -6,7 +6,9 @@
 		    <div class="row text-center">
 		        <h1 class="">Bienvenue</h1>
 		    </div>
+			<a class="btn btn-danger" href="/vente/liste_daly"><i class="las la-sign-out-alt fs-3"></i>Ventes du jour</a>
 		</div>
+
 		<div class="container my-5 row mx-auto">
 			<?php foreach($produits as $produit){ ?>
 				<div class="col-md-4">

@@ -42,7 +42,7 @@
                 <?php if(!isset($_SESSION[_USER_])){ ?>
                 <a class="btn btn-light" href="/login"><i class="las la-user-circle"></i> Connexion</a>
                 <?php }else{ ?>
-                <a class="btn btn-danger" href="/logout"><i class="las la-sign-out-alt fs-3"></i> Sortir</a>
+                    <a class="btn btn-danger" href="/logout"><i class="las la-sign-out-alt fs-3"></i> Sortir</a>
                 <?php } ?>
             </div>
         </nav>
